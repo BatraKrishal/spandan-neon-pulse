@@ -1,0 +1,46 @@
+import axios from 'axios';
+
+import { useAuthStore } from '../store/authStore';
+
+export const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+apiClient.interceptors.request.use((config) => {
+  const token = useAuthStore.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export const authAPI = {
+  login: async (data: any) => {
+    return apiClient.post('/auth/login', data);
+  },
+  register: async (data: any) => {
+    return apiClient.post('/auth/register', data);
+  },
+  logout: async () => {
+    return apiClient.post('/auth/logout');
+  },
+  refresh: async () => {
+    return apiClient.post('/auth/refresh');
+  },
+  verifyEmail: async (code: string) => {
+    return apiClient.get(`/auth/verify-email?code=${code}`);
+  },
+  googleAuth: () => {
+    window.location.href = `${apiClient.defaults.baseURL}/auth/google`;
+  }
+};
+
+export const eventsAPI = {
+  registerParticipant: async (data: any) => {
+    return apiClient.post('/participant/register', data);
+  }
+};

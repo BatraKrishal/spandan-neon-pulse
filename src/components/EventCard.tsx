@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Users, Calendar } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowUpRight, Users, Calendar, FileText } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 interface EventCardProps {
   title: string;
@@ -21,16 +22,35 @@ const EventCard = ({
   image,
   index,
 }: EventCardProps) => {
+  const navigate = useNavigate();
+  const { isAuthenticated } = useAuthStore();
+
+  const handleCardClick = () => {
+    if (isAuthenticated) {
+      navigate(`/register?event=${encodeURIComponent(title)}`);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const handleViewRulesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Replace this link with the actual Google Drive public PDF link.
+    window.open("https://drive.google.com/", "_blank");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group glow-card overflow-hidden hover-lift"
+      className="group glow-card overflow-hidden hover-lift cursor-pointer flex flex-col h-full"
+      onClick={handleCardClick}
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden shrink-0">
         <img
           src={image}
           alt={title}
@@ -52,24 +72,34 @@ const EventCard = ({
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-5 flex flex-col flex-1">
         <h3 className="font-heading font-semibold text-xl mb-2 group-hover:text-primary transition-colors">
           {title}
         </h3>
-        <p className="text-muted-foreground text-sm font-body mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-sm font-body mb-4 line-clamp-2 flex-1">
           {description}
         </p>
 
         {/* Meta Info */}
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Calendar className="w-4 h-4 text-primary" />
-            <span className="font-display">{date}</span>
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
+          <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <Calendar className="w-4 h-4 text-primary" />
+              <span className="font-display">{date}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Users className="w-4 h-4 text-primary" />
+              <span className="font-display">{teamSize}</span>
+            </div>
           </div>
-          <div className="flex items-center gap-1">
-            <Users className="w-4 h-4 text-primary" />
-            <span className="font-display">{teamSize}</span>
-          </div>
+          
+          <button
+            onClick={handleViewRulesClick}
+            className="flex items-center gap-1 text-sm font-semibold hover:text-primary transition-colors bg-secondary/50 hover:bg-secondary px-3 py-1.5 rounded-lg border border-border/50"
+          >
+            <FileText className="w-4 h-4 text-primary" />
+            <span className="font-display">Rules</span>
+          </button>
         </div>
       </div>
     </motion.div>

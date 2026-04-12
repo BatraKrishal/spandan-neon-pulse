@@ -4,6 +4,18 @@ import { HashLink } from "react-router-hash-link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuthStore } from "@/store/authStore";
+import { useNavigate } from "react-router-dom";
+import { authAPI } from "@/lib/api";
+import { toast } from "sonner";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,6 +27,19 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuthStore();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await authAPI.logout();
+      logout();
+      toast.success("Logged out successfully");
+      navigate("/");
+    } catch (error) {
+      toast.error("Failed to logout");
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
@@ -54,14 +79,41 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button
-              variant="default"
-              className="font-display font-semibold tracking-wide"
-            >
-              Register Now
-            </Button>
+          {/* CTA Button / User Profile */}
+          <div className="hidden md:flex items-center gap-4">
+            {isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="font-display font-semibold tracking-wide border-primary text-primary hover:bg-primary/10">
+                    {user?.name || user?.email?.split('@')[0] || "Profile"}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-background/95 backdrop-blur-xl border-border">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="text-destructive cursor-pointer">
+                    Log out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  className="font-display font-semibold tracking-wide"
+                  onClick={() => navigate('/login')}
+                >
+                  Log in
+                </Button>
+                <Button
+                  variant="default"
+                  className="font-display font-semibold tracking-wide"
+                  onClick={() => navigate('/signup')}
+                >
+                  Register Now
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
