@@ -11,6 +11,7 @@ export interface EventData {
   date: string;
   teamSize: string;
   image: string;
+  rulebookUrl?: string;
   coordinator?: EventCoordinator;
 }
 
@@ -35,6 +36,7 @@ export const events: EventData[] = [
     date: "May 2 (Day 2)",
     teamSize: "3-5 members",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1LKBdnXY13xYWwVQA23wo-PHkLY26vGU4/view?usp=drive_link",
     coordinator: {
       name: "Sarah Chen",
       phone: "+1 (555) 987-6543",
@@ -48,6 +50,7 @@ export const events: EventData[] = [
     date: "May 1 (Day 1)",
     teamSize: "1-3 members",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1ZF4XY_Vpgjbzi0VJXedNhoKgoWX2x0IO/view?usp=drive_link",
     coordinator: {
       name: "Michael Smith",
       phone: "+1 (555) 456-7890",
@@ -61,6 +64,7 @@ export const events: EventData[] = [
     date: "May 1 (Day 1)",
     teamSize: "2-4 members",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1MMKuKclmf2Fbmn4wBgaV5qub2f9XjgxH/view?usp=drive_link",
     coordinator: {
       name: "David Miller",
       phone: "+1 (555) 234-5678",
@@ -74,6 +78,7 @@ export const events: EventData[] = [
     date: "May 1 (Day 1)",
     teamSize: "1-2 members",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1Q4S0EX34m1A98AIwOLh6_dMBdfL3VZjo/view?usp=drive_link",
     coordinator: {
       name: "Emma Wilson",
       phone: "+1 (555) 345-6789",
@@ -87,6 +92,7 @@ export const events: EventData[] = [
     date: "May 2 (Day 2)",
     teamSize: "1-2 members",
     image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1ylT1-M35l92pXgryOpy1jpRKyp-zRuQQ/view?usp=drive_link",
     coordinator: {
       name: "James Taylor",
       phone: "+1 (555) 456-7891",
@@ -100,6 +106,7 @@ export const events: EventData[] = [
     date: "May 1 (Day 1)",
     teamSize: "2-3 members",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1TErG-jeiFyAED9FsWo2P1bZNXVx5LcYT/view?usp=drive_link",
     coordinator: {
       name: "Sophia Martinez",
       phone: "+1 (555) 567-8901",
@@ -126,6 +133,7 @@ export const events: EventData[] = [
     date: "May 1–2 (Day 1–2)",
     teamSize: "2-4 members",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/1HkXIh7B5JgAkk1c3fwOYbbwd8adXjAPP/view?usp=drive_link",
     coordinator: {
       name: "Olivia Davis",
       phone: "+1 (555) 789-0123",
@@ -139,6 +147,7 @@ export const events: EventData[] = [
     date: "May 1 (Day 1)",
     teamSize: "1-2 members",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    rulebookUrl: "https://drive.google.com/file/d/10fs3mQpKnMuDn2bxMHNip7bQ5B27PkCN/view?usp=drive_link",
     coordinator: {
       name: "Noah Rodriguez",
       phone: "+1 (555) 890-1234",

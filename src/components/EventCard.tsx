@@ -10,6 +10,7 @@ interface EventCardProps {
   date: string;
   teamSize: string;
   image: string;
+  rulebookUrl?: string;
   index: number;
   onViewDetails?: () => void;
 }
@@ -21,6 +22,7 @@ const EventCard = ({
   date,
   teamSize,
   image,
+  rulebookUrl,
   index,
   onViewDetails,
 }: EventCardProps) => {
@@ -40,7 +42,9 @@ const EventCard = ({
   const handleViewRulesClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    window.open("https://drive.google.com/", "_blank");
+    if (rulebookUrl) {
+      window.open(rulebookUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
@@ -130,26 +134,28 @@ const EventCard = ({
             </div>
           </div>
 
-          <button
-            onClick={handleViewRulesClick}
-            className="flex items-center gap-1.5 text-xs font-display font-semibold px-3 py-1.5 rounded-lg transition-all duration-300"
-            style={{
-              background: "hsl(78 100% 50% / 0.08)",
-              border: "1px solid hsl(78 100% 50% / 0.15)",
-              color: "hsl(78 100% 50%)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.15)";
-              (e.currentTarget as HTMLElement).style.borderColor = "hsl(78 100% 50% / 0.4)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.08)";
-              (e.currentTarget as HTMLElement).style.borderColor = "hsl(78 100% 50% / 0.15)";
-            }}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            Rules
-          </button>
+          {rulebookUrl && (
+            <button
+              onClick={handleViewRulesClick}
+              className="flex items-center gap-1.5 text-xs font-display font-semibold px-3 py-1.5 rounded-lg transition-all duration-300"
+              style={{
+                background: "hsl(78 100% 50% / 0.08)",
+                border: "1px solid hsl(78 100% 50% / 0.15)",
+                color: "hsl(78 100% 50%)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.15)";
+                (e.currentTarget as HTMLElement).style.borderColor = "hsl(78 100% 50% / 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.08)";
+                (e.currentTarget as HTMLElement).style.borderColor = "hsl(78 100% 50% / 0.15)";
+              }}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              Rules
+            </button>
+          )}
         </div>
       </div>
 

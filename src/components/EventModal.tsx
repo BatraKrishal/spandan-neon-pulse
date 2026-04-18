@@ -27,7 +27,9 @@ const EventModal = ({ event, isOpen, onClose }: EventModalProps) => {
   };
 
   const handleViewRules = () => {
-    window.open("https://drive.google.com/", "_blank");
+    if (event.rulebookUrl) {
+      window.open(event.rulebookUrl, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
@@ -164,43 +166,47 @@ const EventModal = ({ event, isOpen, onClose }: EventModalProps) => {
                       <UserIcon className="w-3.5 h-3.5" style={{ color: "hsl(78 100% 50%)" }} />
                       Event Coordinator
                     </h3>
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={event.coordinator.photo}
-                        alt={event.coordinator.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                        style={{ border: "2px solid hsl(78 100% 50% / 0.3)" }}
-                      />
-                      <div>
-                        <p className="font-display font-semibold text-foreground">
-                          {event.coordinator.name}
-                        </p>
-                        <a
-                          href={`tel:${event.coordinator.phone.replace(/[^0-9+]/g, "")}`}
-                          className="flex items-center gap-1 text-sm mt-0.5 transition-colors"
-                          style={{ color: "hsl(78 100% 50%)" }}
-                        >
-                          <Phone className="w-3 h-3" />
-                          {event.coordinator.phone}
-                        </a>
-                      </div>
+                    <div className="flex items-center justify-between flex-wrap gap-3">
+                      <p className="font-display font-semibold text-foreground">
+                        {event.coordinator.name}
+                      </p>
+                      <a
+                        href={`tel:${event.coordinator.phone.replace(/[^0-9+]/g, "")}`}
+                        className="flex items-center gap-1.5 text-sm font-display font-medium px-3 py-1.5 rounded-lg transition-all duration-200"
+                        style={{
+                          background: "hsl(78 100% 50% / 0.08)",
+                          border: "1px solid hsl(78 100% 50% / 0.2)",
+                          color: "hsl(78 100% 50%)",
+                        }}
+                        onMouseEnter={(e) => {
+                          (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.15)";
+                        }}
+                        onMouseLeave={(e) => {
+                          (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.08)";
+                        }}
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        {event.coordinator.phone}
+                      </a>
                     </div>
                   </div>
                 )}
 
                 {/* Actions */}
                 <div className="flex gap-3 mt-auto">
-                  <Button
-                    onClick={handleViewRules}
-                    variant="outline"
-                    className="flex-1 font-display border-border/50 hover:border-primary/40 gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    View Rules
-                  </Button>
+                  {event.rulebookUrl && (
+                    <Button
+                      onClick={handleViewRules}
+                      variant="outline"
+                      className="flex-1 font-display border-border/50 hover:border-primary/40 gap-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Rulebook
+                    </Button>
+                  )}
                   <Button
                     onClick={handleRegister}
-                    className="flex-1 font-display font-bold gap-2"
+                    className={`font-display font-bold gap-2 ${event.rulebookUrl ? "flex-1" : "w-full"}`}
                     style={{ background: "var(--gradient-neon)", color: "hsl(0 0% 4%)", border: "none" }}
                   >
                     Register Now

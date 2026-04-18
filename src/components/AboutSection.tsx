@@ -18,13 +18,6 @@ const features = [
     colorDim: "hsl(185 100% 50% / 0.1)",
   },
   {
-    icon: Users,
-    title: "Workshops",
-    description: "Learn from industry experts through immersive, hands-on technical workshops.",
-    color: "hsl(300 100% 60%)",
-    colorDim: "hsl(300 100% 60% / 0.1)",
-  },
-  {
     icon: Zap,
     title: "Innovation",
     description: "Showcase your ideas and compete with the brightest minds from across the country.",
@@ -34,10 +27,10 @@ const features = [
 ];
 
 const stats = [
-  { value: 2000, suffix: "+", label: "Participants" },
-  { value: 50,   suffix: "+", label: "Events" },
-  { value: 5,    prefix: "₹", suffix: "L+", label: "Prize Pool" },
-  { value: 2,    suffix: "",  label: "Intense Days" },
+  { value: 2000, suffix: "+",  label: "Participants" },
+  { value: 12,   suffix: "",   label: "Events" },
+  { value: 50,   prefix: "₹", suffix: "K+", label: "Prize Pool" },
+  { value: 3,    suffix: "",   label: "Intense Days" },
 ];
 
 // Animated number counter
@@ -99,13 +92,13 @@ const AboutSection = () => {
           </h2>
           <p className="text-muted-foreground font-display max-w-2xl mx-auto text-lg leading-relaxed">
             SPANDAN 3.0 is the flagship technical festival that brings together
-            innovators, hackers, and tech enthusiasts for two days of intense
-            competition and learning.
+            innovators, hackers, and tech enthusiasts for three days of intense
+            competition, creativity, and sustainable innovation.
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+        {/* Features Grid — 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

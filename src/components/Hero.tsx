@@ -119,11 +119,28 @@ const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl font-display text-muted-foreground mb-4 max-w-lg"
+            className="text-lg md:text-xl font-display text-muted-foreground mb-3 max-w-lg"
           >
             The Ultimate Tech Festival — Where{" "}
             <span className="text-foreground font-semibold">Innovation</span> Meets{" "}
             <span className="text-foreground font-semibold">Competition.</span>
+          </motion.p>
+
+          {/* Theme line */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.38 }}
+            className="font-display font-semibold text-sm md:text-base mb-8 max-w-lg"
+            style={{
+              background: "var(--gradient-neon)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 0 12px hsl(78 100% 50% / 0.35))",
+            }}
+          >
+            ✦ Engineering the Rhythm of a Greener World
           </motion.p>
 
           <motion.div
@@ -132,7 +149,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="flex flex-wrap gap-2 mb-10 justify-center lg:justify-start"
           >
-            {["AI", "Robotics", "Hackathons", "Workshops"].map((tag, i) => (
+            {["AI", "Robotics", "Hackathons", "Sustainability", "Design"].map((tag, i) => (
               <span
                 key={tag}
                 className="section-tag"
