@@ -1,18 +1,26 @@
 import { motion } from "framer-motion";
 
-const partners = [
-  { name: "TechCorp", logo: "TC", color: "hsl(78 100% 50%)" },
-  { name: "InnovateLabs", logo: "IL", color: "hsl(185 100% 50%)" },
-  { name: "FutureTech", logo: "FT", color: "hsl(300 100% 60%)" },
-  { name: "CodeBase", logo: "CB", color: "hsl(78 100% 50%)" },
-  { name: "AI Solutions", logo: "AI", color: "hsl(185 100% 50%)" },
-  { name: "RoboTech", logo: "RT", color: "hsl(300 100% 60%)" },
-  { name: "DataFlow", logo: "DF", color: "hsl(78 100% 50%)" },
-  { name: "CloudSpark", logo: "CS", color: "hsl(185 100% 50%)" },
+interface Partner {
+  name: string;
+  logo?: string;
+  logoImage?: string;
+  color: string;
+  website: string;
+}
+
+const partners: Partner[] = [
+  {
+    name: "PETA India",
+    logoImage: "/sponsors/PetaIndia.png",
+    color: "hsl(78 100% 50%)",
+    website: "https://www.petaindia.com/",
+  },
 ];
 
-// Duplicated for seamless infinite loop
-const allPartners = [...partners, ...partners];
+// Repeat enough times so the marquee looks full even with few sponsors
+const filled = Array.from({ length: Math.ceil(8 / partners.length) }, () => partners).flat();
+// Duplicate for seamless infinite loop
+const allPartners = [...filled, ...filled];
 
 const Partners = () => {
   return (
@@ -54,18 +62,22 @@ const Partners = () => {
         >
           <div className="marquee-track">
             {allPartners.map((partner, index) => (
-              <div
+              <a
                 key={`${partner.name}-${index}`}
-                className="group flex-shrink-0 flex items-center gap-4 px-6 py-4 rounded-xl cursor-default"
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex-shrink-0 flex items-center gap-4 px-5 py-3.5 rounded-xl"
                 style={{
                   background: "hsl(0 0% 6%)",
                   border: "1px solid hsl(0 0% 14%)",
-                  minWidth: "180px",
+                  minWidth: "200px",
                   transition: "all 0.3s ease",
+                  textDecoration: "none",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = partner.color + "40";
-                  e.currentTarget.style.boxShadow = `0 0 20px ${partner.color}15`;
+                  e.currentTarget.style.boxShadow = `0 0 20px ${partner.color}18`;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "hsl(0 0% 14%)";
@@ -73,20 +85,25 @@ const Partners = () => {
                 }}
               >
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ background: partner.color + "15", border: `1px solid ${partner.color}30` }}
+                  className="w-12 h-10 rounded-lg flex items-center justify-center shrink-0 overflow-hidden"
+                  style={{ background: "hsl(0 0% 10%)", border: `1px solid ${partner.color}25` }}
                 >
-                  <span
-                    className="text-sm font-heading font-bold"
-                    style={{ color: partner.color }}
-                  >
-                    {partner.logo}
-                  </span>
+                  {partner.logoImage ? (
+                    <img
+                      src={partner.logoImage}
+                      alt={partner.name}
+                      className="w-full h-full object-contain p-1.5"
+                    />
+                  ) : (
+                    <span className="text-sm font-heading font-bold" style={{ color: partner.color }}>
+                      {partner.logo}
+                    </span>
+                  )}
                 </div>
-                <span className="font-display font-semibold text-sm text-foreground/80 whitespace-nowrap">
+                <span className="font-display font-semibold text-sm text-foreground/80 whitespace-nowrap group-hover:text-foreground transition-colors">
                   {partner.name}
                 </span>
-              </div>
+              </a>
             ))}
           </div>
         </motion.div>

@@ -33,15 +33,24 @@ const SponsorCard = ({ sponsor, index }: { sponsor: Sponsor; index: number }) =>
 
     {/* Logo box */}
     <div
-      className="w-20 h-20 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-105"
+      className="w-28 h-20 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-105 overflow-hidden"
       style={{
-        background: "hsl(78 100% 50% / 0.06)",
+        background: "hsl(0 0% 10%)",
         border: "1px solid hsl(78 100% 50% / 0.15)",
       }}
     >
-      <span className="text-3xl font-heading font-black" style={{ color: "hsl(78 100% 50%)" }}>
-        {sponsor.logo}
-      </span>
+      {sponsor.logoImage ? (
+        <img
+          src={sponsor.logoImage}
+          alt={sponsor.name}
+          className="w-full h-full object-contain p-3"
+          style={{ filter: "brightness(1.05)" }}
+        />
+      ) : (
+        <span className="text-3xl font-heading font-black" style={{ color: "hsl(78 100% 50%)" }}>
+          {sponsor.logo}
+        </span>
+      )}
     </div>
 
     <h3 className="font-heading font-bold text-base mb-1.5 group-hover:text-primary transition-colors">
