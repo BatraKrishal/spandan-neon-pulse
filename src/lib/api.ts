@@ -35,7 +35,9 @@ export const authAPI = {
     return apiClient.get(`/auth/verify-email?code=${code}`);
   },
   googleAuth: () => {
-    window.location.href = `${apiClient.defaults.baseURL}/auth/google`;
+    // baseURL is e.g. "http://localhost:5000" — navigate directly to the OAuth start route
+    const base = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+    window.location.href = `${base}/auth/google`;
   }
 };
 

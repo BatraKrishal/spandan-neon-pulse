@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,7 +15,17 @@ export default function Login() {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { setUser, setToken, isAuthenticated } = useAuthStore();
+
+  // Show error toast if redirected back from failed Google auth
+  useEffect(() => {
+    if (searchParams.get("error") === "google_auth_failed") {
+      toast.error("Google sign-in failed. Please try again or use email/password.");
+      // Clean the param from the URL
+      window.history.replaceState({}, "", "/login");
+    }
+  }, [searchParams]);
 
   // Redirect already-logged-in users
   useEffect(() => {

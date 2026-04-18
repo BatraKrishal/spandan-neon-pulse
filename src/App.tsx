@@ -23,10 +23,35 @@ const App = () => {
 
   useEffect(() => {
     const initAuth = async () => {
+      // ── Handle Google OAuth callback params ──────────────────────────────
+      const params = new URLSearchParams(window.location.search);
+      const googleSuccess = params.has("google_success");
+      const googleError   = params.get("error");
+
+      // Clean query params from the URL immediately (don't leave them on reload)
+      if (googleSuccess || googleError) {
+        window.history.replaceState({}, "", window.location.pathname);
+      }
+
+      // Show error toast if Google auth failed
+      if (googleError === "google_auth_failed") {
+        // Dynamically import to avoid circular deps; toast fires after render
+        import("sonner").then(({ toast }) => {
+          toast.error("Google sign-in failed. Please try again.");
+        });
+      }
+
+      // ── Refresh session (works for both normal and Google OAuth) ─────────
       try {
         const response = await authAPI.refresh();
         setUser(response.data.user);
         setToken(response.data.accessToken);
+
+        if (googleSuccess) {
+          import("sonner").then(({ toast }) => {
+            toast.success("Signed in with Google!");
+          });
+        }
       } catch {
         setUser(null);
         setToken(null);
@@ -35,7 +60,7 @@ const App = () => {
       }
     };
     initAuth();
-  }, [setUser, setIsLoading]);
+  }, [setUser, setToken, setIsLoading]);
 
   return (
     <QueryClientProvider client={queryClient}>
