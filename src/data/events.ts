@@ -1,6 +1,7 @@
 export interface EventCoordinator {
   name: string;
   phone: string;
+  email?: string;
 }
 
 export interface EventData {
@@ -9,6 +10,8 @@ export interface EventData {
   description: string;
   date: string;
   teamSize: string;
+  minTeam: number;
+  maxTeam: number;
   image: string;
   rulebookUrl?: string;
   coordinators?: EventCoordinator[];
@@ -27,18 +30,22 @@ const rawEvents: RawEventData[] = [
     category: "Hackathon",
     description: "A 24-hour hackathon focused on sustainability. Build innovative software solutions to tackle global environmental challenges and reduce carbon footprints.",
     date: "May 1–2 (Day 1–2)",
-    teamSize: "2-4 members",
+    teamSize: "2–4 members",
+    minTeam: 2,
+    maxTeam: 4,
   },
   {
     title: "AlgoRhythm",
     category: "DSA Problem Solving",
     description: "Test your analytical thinking and coding speed! Compete against top programmers to solve complex Data Structures and Algorithms problems under strict time constraints.",
     date: "May 2 (Day 2)",
-    teamSize: "3-5 members",
-    rulebookUrl: "https://drive.google.com/file/d/1LKBdnXY13xYWwVQA23wo-PHkLY26vGU4/view?usp=drive_link",
+    teamSize: "Solo (1 member)",
+    minTeam: 1,
+    maxTeam: 1,
+    rulebookUrl: "https://drive.google.com/file/d/1LKBdnXY13xYWwVQA23wo-PHkLY26vGU4/view?usp=drivesdk",
     coordinators: [
-      { name: "Utsav Kashyap",  phone: "8755051637" },
-      { name: "Saket Kandari",  phone: "7668877496" },
+      { name: "Utsav Kashyap", phone: "8755051637", email: "utsav.mlr@gmail.com" },
+      { name: "Saket Kandari", phone: "7668877496", email: "saket12kandari@gmail.com" },
     ],
   },
   {
@@ -46,10 +53,12 @@ const rawEvents: RawEventData[] = [
     category: "ML Bot + Prediction Model",
     description: "Dive into the world of Machine Learning! Build, train, and optimize ML bots and predictive models to analyze complex datasets and solve real-world industry challenges.",
     date: "May 1 (Day 1)",
-    teamSize: "1-3 members",
-    rulebookUrl: "https://drive.google.com/file/d/1ZF4XY_Vpgjbzi0VJXedNhoKgoWX2x0IO/view?usp=drive_link",
+    teamSize: "1–4 members",
+    minTeam: 1,
+    maxTeam: 4,
+    rulebookUrl: "https://drive.google.com/file/d/1ZF4XY_Vpgjbzi0VJXedNhoKgoWX2x0IO/view?usp=drivesdk",
     coordinators: [
-      { name: "Jiyanshi Batra", phone: "+91 8445021974" },
+      { name: "Jiyanshi Batra", phone: "+91 8445021974", email: "jiyanshibatra753@gmail.com" },
     ],
   },
   {
@@ -57,11 +66,13 @@ const rawEvents: RawEventData[] = [
     category: "Bridge Making",
     description: "Put your civil engineering skills to the test. Design and construct structurally sound, weight-bearing bridges using limited materials and race against time.",
     date: "May 1 (Day 1)",
-    teamSize: "2-4 members",
-    rulebookUrl: "https://drive.google.com/file/d/1MMKuKclmf2Fbmn4wBgaV5qub2f9XjgxH/view?usp=drive_link",
+    teamSize: "2–6 members (branch-wise)",
+    minTeam: 2,
+    maxTeam: 6,
+    rulebookUrl: "https://drive.google.com/file/d/1MMKuKclmf2Fbmn4wBgaV5qub2f9XjgxH/view?usp=drivesdk",
     coordinators: [
-      { name: "Yuvraj Singh Makhloga", phone: "+91 7088305386" },
-      { name: "Abhay Kumar",           phone: "+91 9325517255" },
+      { name: "Yuvraj Singh Makhloga", phone: "+91 70883 05386" },
+      { name: "Abhay Kumar",           phone: "+91 93255 17255" },
     ],
   },
   {
@@ -69,8 +80,10 @@ const rawEvents: RawEventData[] = [
     category: "Treasure Hunt",
     description: "An exhilarating campus-wide treasure hunt with a tech twist! Decipher intricate technical puzzles, crack codes, and unlock hidden clues to claim the ultimate prize.",
     date: "May 1 (Day 1)",
-    teamSize: "1-2 members",
-    rulebookUrl: "https://drive.google.com/file/d/1Q4S0EX34m1A98AIwOLh6_dMBdfL3VZjo/view?usp=drive_link",
+    teamSize: "2–5 members (same branch)",
+    minTeam: 2,
+    maxTeam: 5,
+    rulebookUrl: "https://drive.google.com/file/d/1Q4S0EX34m1A98AIwOLh6_dMBdfL3VZjo/view?usp=drivesdk",
     coordinators: [
       { name: "Gaurav Pal", phone: "8439051108" },
     ],
@@ -80,21 +93,25 @@ const rawEvents: RawEventData[] = [
     category: "Terrain Manipulator Challenge",
     description: "Design mechanisms and robots capable of navigating and manipulating challenging simulated terrains. Speed, adaptability, and precision are the keys to victory!",
     date: "May 2 (Day 2)",
-    teamSize: "1-2 members",
-    rulebookUrl: "https://drive.google.com/file/d/1ylT1-M35l92pXgryOpy1jpRKyp-zRuQQ/view?usp=drive_link",
+    teamSize: "1–5 members",
+    minTeam: 1,
+    maxTeam: 5,
+    rulebookUrl: "https://drive.google.com/file/d/1ylT1-M35l92pXgryOpy1jpRKyp-zRuQQ/view?usp=drivesdk",
     coordinators: [
-      { name: "Anmol Dimri", phone: "+91 9389640540" },
+      { name: "Anmol Dimri", phone: "+91 9389640540", email: "anmol.dimri29@gmail.com" },
     ],
   },
   {
     title: "NetRunnerz",
-    category: "Robo Soccer",
+    category: "Robo Scorer",
     description: "The ultimate robotic sports event! Design, build, and program agile robots to compete in an intense, high-speed game of mechanical soccer.",
     date: "May 1 (Day 1)",
-    teamSize: "2-3 members",
-    rulebookUrl: "https://drive.google.com/file/d/1TErG-jeiFyAED9FsWo2P1bZNXVx5LcYT/view?usp=drive_link",
+    teamSize: "4–6 members (branch-wise)",
+    minTeam: 4,
+    maxTeam: 6,
+    rulebookUrl: "https://drive.google.com/file/d/1TErG-jeiFyAED9FsWo2P1bZNXVx5LcYT/view?usp=drivesdk",
     coordinators: [
-      { name: "Sujal Singh Bisht", phone: "8218204560" },
+      { name: "Sujal Singh Bisht", phone: "8218204560", email: "sb1743816@gmail.com" },
     ],
   },
   {
@@ -102,14 +119,18 @@ const rawEvents: RawEventData[] = [
     category: "Innovation For Sustainable Future",
     description: "A pitching and innovation challenge. Present your hardware or software prototypes aimed at promoting green energy, sustainability, and ecological preservation.",
     date: "May 2–3 (Day 2–3)",
-    teamSize: "1-5 members",
+    teamSize: "1–5 members",
+    minTeam: 1,
+    maxTeam: 5,
   },
   {
     title: "DesignForge",
     category: "Design Event",
     description: "Unleash your creativity! A UI/UX and product design competition where you wireframe, prototype, and build stunning user experiences to delight users.",
     date: "May 1–2 (Day 1–2)",
-    teamSize: "2-4 members",
+    teamSize: "2–4 members",
+    minTeam: 2,
+    maxTeam: 4,
     rulebookUrl: "https://drive.google.com/file/d/1HkXIh7B5JgAkk1c3fwOYbbwd8adXjAPP/view?usp=drive_link",
     coordinators: [
       { name: "Yashpreet Singh", phone: "+91 6398150951" },
@@ -121,10 +142,12 @@ const rawEvents: RawEventData[] = [
     category: "Line Following Robot",
     description: "Construct autonomous robots built for speed and precision. Compete to navigate complex line-tracks with sharp turns and intersections in the fastest time possible.",
     date: "May 1 (Day 1)",
-    teamSize: "1-2 members",
-    rulebookUrl: "https://drive.google.com/file/d/10fs3mQpKnMuDn2bxMHNip7bQ5B27PkCN/view?usp=drive_link",
+    teamSize: "3–6 members (branch-wise)",
+    minTeam: 3,
+    maxTeam: 6,
+    rulebookUrl: "https://drive.google.com/file/d/10fs3mQpKnMuDn2bxMHNip7bQ5B27PkCN/view?usp=drivesdk",
     coordinators: [
-      { name: "Anubhav Dimri", phone: "7817832297" },
+      { name: "Anubhav Dimri", phone: "7817832297", email: "dimrianubhav123@gmail.com" },
     ],
   },
   {
@@ -132,7 +155,9 @@ const rawEvents: RawEventData[] = [
     category: "Grafitti",
     description: "Express your creativity through the art of graffiti! Participants will create stunning murals and street-art inspired designs that blend technology with artistic expression.",
     date: "May 3 (Day 3)",
-    teamSize: "1-3 members",
+    teamSize: "1–3 members",
+    minTeam: 1,
+    maxTeam: 3,
     coordinator: {
       name: "Zoe Parker",
       phone: "+1 (555) 901-2345",

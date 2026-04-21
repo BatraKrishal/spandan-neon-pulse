@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Phone, User as UserIcon, Calendar, Users, ExternalLink } from "lucide-react";
+import { X, Phone, Mail, User as UserIcon, Calendar, Users, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
@@ -169,26 +169,48 @@ const EventModal = ({ event, isOpen, onClose }: EventModalProps) => {
                     </h3>
                     <div className="flex flex-col gap-2">
                       {event.coordinators.map((coord) => (
-                        <div key={coord.name} className="flex items-center justify-between flex-wrap gap-2">
+                        <div key={coord.name} className="flex flex-col gap-2">
                           <p className="font-display font-semibold text-foreground text-sm">{coord.name}</p>
-                          <a
-                            href={`tel:${coord.phone.replace(/[^0-9+]/g, "")}`}
-                            className="flex items-center gap-1.5 text-xs font-display font-medium px-3 py-1.5 rounded-lg transition-all duration-200"
-                            style={{
-                              background: "hsl(78 100% 50% / 0.08)",
-                              border: "1px solid hsl(78 100% 50% / 0.2)",
-                              color: "hsl(78 100% 50%)",
-                            }}
-                            onMouseEnter={(e) => {
-                              (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.15)";
-                            }}
-                            onMouseLeave={(e) => {
-                              (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.08)";
-                            }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            {coord.phone}
-                          </a>
+                          <div className="flex flex-wrap gap-2">
+                            <a
+                              href={`tel:${coord.phone.replace(/[^0-9+]/g, "")}`}
+                              className="flex items-center gap-1.5 text-xs font-display font-medium px-3 py-1.5 rounded-lg transition-all duration-200"
+                              style={{
+                                background: "hsl(78 100% 50% / 0.08)",
+                                border: "1px solid hsl(78 100% 50% / 0.2)",
+                                color: "hsl(78 100% 50%)",
+                              }}
+                              onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.15)";
+                              }}
+                              onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.background = "hsl(78 100% 50% / 0.08)";
+                              }}
+                            >
+                              <Phone className="w-3 h-3" />
+                              {coord.phone}
+                            </a>
+                            {coord.email && (
+                              <a
+                                href={`mailto:${coord.email}`}
+                                className="flex items-center gap-1.5 text-xs font-display font-medium px-3 py-1.5 rounded-lg transition-all duration-200"
+                                style={{
+                                  background: "hsl(210 100% 56% / 0.08)",
+                                  border: "1px solid hsl(210 100% 56% / 0.2)",
+                                  color: "hsl(210 100% 70%)",
+                                }}
+                                onMouseEnter={(e) => {
+                                  (e.currentTarget as HTMLElement).style.background = "hsl(210 100% 56% / 0.15)";
+                                }}
+                                onMouseLeave={(e) => {
+                                  (e.currentTarget as HTMLElement).style.background = "hsl(210 100% 56% / 0.08)";
+                                }}
+                              >
+                                <Mail className="w-3 h-3" />
+                                {coord.email}
+                              </a>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>

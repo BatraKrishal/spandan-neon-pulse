@@ -85,7 +85,7 @@ const Hero = () => {
           >
             <Sparkles className="w-3.5 h-3.5 text-primary" />
             <span className="text-xs font-display font-semibold text-primary/90 uppercase tracking-widest">
-              May 1–3, 2026 &bull; College Campus
+              May 1–3, 2026 &bull; GBPIET Campus
             </span>
           </motion.div>
 

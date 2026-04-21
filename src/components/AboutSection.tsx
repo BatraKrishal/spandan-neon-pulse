@@ -28,7 +28,7 @@ const features = [
 
 const stats = [
   { value: 2000, suffix: "+",  label: "Participants" },
-  { value: 12,   suffix: "",   label: "Events" },
+  { value: 14,   suffix: "+",   label: "Events" },
   { value: 50,   prefix: "₹", suffix: "K+", label: "Prize Pool" },
   { value: 3,    suffix: "",   label: "Intense Days" },
 ];

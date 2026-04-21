@@ -120,7 +120,7 @@ const Partners = () => {
             Interested in partnering with us?
           </p>
           <a
-            href="mailto:partners@spandan.tech"
+            href="mailto:gbpietspandan@gmail.com"
             className="inline-flex items-center gap-2 font-display font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300"
             style={{
               background: "hsl(78 100% 50% / 0.08)",

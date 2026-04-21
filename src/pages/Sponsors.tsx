@@ -203,7 +203,7 @@ const Sponsors = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="mailto:sponsors@spandan.tech"
+                href="mailto:gbpietspandan@gmail.com"
                 className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-display font-bold text-sm transition-all duration-300"
                 style={{ background: "var(--gradient-neon)", color: "hsl(0 0% 4%)" }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px hsl(78 100% 50% / 0.4)")}
@@ -213,7 +213,7 @@ const Sponsors = () => {
                 Partner With Us
               </a>
               <a
-                href="mailto:sponsors@spandan.tech"
+                href="mailto:gbpietspandan@gmail.com"
                 className="flex items-center gap-2 px-8 py-3.5 rounded-xl font-display font-semibold text-sm transition-all duration-300"
                 style={{ background: "hsl(0 0% 8%)", border: "1px solid hsl(0 0% 18%)", color: "hsl(0 0% 70%)" }}
                 onMouseEnter={(e) => {

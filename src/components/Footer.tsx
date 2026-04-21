@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import { Github, Instagram, Linkedin, Twitter, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram", color: "hsl(330 100% 60%)" },
-  { icon: Twitter, href: "#", label: "Twitter", color: "hsl(200 100% 55%)" },
-  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hsl(210 100% 56%)" },
-  { icon: Github, href: "#", label: "GitHub", color: "hsl(0 0% 80%)" },
+  { icon: Instagram, href: "https://www.instagram.com/gbpiet.spandan/", label: "Instagram", color: "hsl(330 100% 60%)" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/spandan-gbpiet-194733402/", label: "LinkedIn", color: "hsl(210 100% 56%)" },
 ];
 
 const quickLinks = [
@@ -64,15 +62,15 @@ const Footer = () => {
             {/* Contact */}
             <div className="space-y-2.5">
               <a
-                href="mailto:contact@spandan.tech"
+                href="mailto:gbpietspandan@gmail.com"
                 className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-primary transition-colors group"
               >
                 <Mail className="w-4 h-4 shrink-0 text-primary/60 group-hover:text-primary" />
-                <span className="font-body">contact@spandan.tech</span>
+                <span className="font-body">gbpietspandan@gmail.com</span>
               </a>
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 shrink-0 text-primary/60" />
-                <span className="font-body">College Campus, City, State</span>
+                <span className="font-body">GBPIET, Ghurdauri, Uttrakhand</span>
               </div>
             </div>
           </div>
@@ -156,7 +154,7 @@ const Footer = () => {
                 Reach 2000+ students and innovators.
               </p>
               <a
-                href="mailto:partners@spandan.tech"
+                href="mailto:gbpietspandan@gmail.com"
                 className="inline-flex items-center gap-1 text-xs font-display font-bold transition-all"
                 style={{ color: "hsl(78 100% 50%)" }}
               >
