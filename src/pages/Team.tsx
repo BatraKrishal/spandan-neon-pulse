@@ -297,12 +297,9 @@ const MemberCard = ({ member, index }: { member: TeamMember; index: number }) =>
           {member.name}
         </h3>
         {showCaptions && (
-          <>
-            <p className="font-display text-sm font-medium mb-3" style={{ color: accentColor }}>
-              {member.role}
-            </p>
-            <p className="text-xs font-body text-muted-foreground truncate">{member.email}</p>
-          </>
+          <p className="font-display text-sm font-medium" style={{ color: accentColor }}>
+            {member.role}
+          </p>
         )}
       </div>
       </div>
