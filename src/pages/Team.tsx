@@ -7,12 +7,10 @@ import { teamMembers, departments, TeamMember } from "@/data/team";
 
 const deptColors: Record<string, string> = {
   "Event Coordinators": "hsl(45 100% 55%)",
-  "Devign": "hsl(300 100% 60%)",
-  "Art nd Craft": "hsl(330 100% 60%)",
+  "Devign": "hsl(185 100% 50%)",
   "Photography": "hsl(210 100% 56%)",
-  "Tech Team": "hsl(185 100% 50%)",
-  "Management": "hsl(78 100% 50%)",
   "Discipline": "hsl(0 100% 60%)",
+  "Volunteers": "hsl(280 100% 60%)",
 };
 
 const MemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
@@ -236,9 +234,7 @@ const Team = () => {
                       <h2 className="font-heading font-bold text-lg" style={{ color: deptColors[dept] }}>
                         {dept}
                       </h2>
-                      <span className="text-xs font-display text-muted-foreground">
-                        ({teamMembers.filter((m) => m.department === dept).length} members)
-                      </span>
+                      {/* Member count removed */}
                     </motion.div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                       {teamMembers
@@ -259,7 +255,6 @@ const Team = () => {
                 transition={{ duration: 0.3 }}
               >
                 <p className="text-xs font-display text-muted-foreground mb-8">
-                  <span className="text-primary font-semibold">{filtered.length}</span> members in{" "}
                   <span className="text-foreground font-semibold">{activeDept}</span>
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
