@@ -165,7 +165,7 @@ const room105Mates = [
 const MemberCard = ({ member, index }: { member: TeamMember; index: number }) => {
   const accentColor = deptColors[member.department] || "hsl(78 100% 50%)";
   const showCaptions = member.department === "Devign";
-  const showExternalSocials = member.department !== "Devign";
+  const disableExternalSocials = member.department === "Devign";
   const isRahul = member.department === "Devign" && member.name === ["Rahul", "Joshi"].join(" ");
 
   return (
@@ -257,42 +257,48 @@ const MemberCard = ({ member, index }: { member: TeamMember; index: number }) =>
           >
             <Mail className="w-4 h-4 text-foreground/80" />
           </a>
-          {showExternalSocials && (
-            <>
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="LinkedIn"
-                className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
-                style={{
-                  background: "hsl(0 0% 0% / 0.7)",
-                  border: "1px solid hsl(0 0% 100% / 0.15)",
-                  backdropFilter: "blur(8px)",
-                }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(210 100% 56% / 0.8)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(0 0% 100% / 0.15)")}
-              >
-                <Linkedin className="w-4 h-4 text-foreground/80" />
-              </a>
-              <a
-                href={member.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Instagram"
-                className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
-                style={{
-                  background: "hsl(0 0% 0% / 0.7)",
-                  border: "1px solid hsl(0 0% 100% / 0.15)",
-                  backdropFilter: "blur(8px)",
-                }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(330 100% 60% / 0.8)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(0 0% 100% / 0.15)")}
-              >
-                <Instagram className="w-4 h-4 text-foreground/80" />
-              </a>
-            </>
-          )}
+          <a
+            href={disableExternalSocials ? "#" : member.linkedin}
+            target={disableExternalSocials ? undefined : "_blank"}
+            rel={disableExternalSocials ? undefined : "noopener noreferrer"}
+            title="LinkedIn"
+            aria-disabled={disableExternalSocials}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (disableExternalSocials) e.preventDefault();
+            }}
+            className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+            style={{
+              background: "hsl(0 0% 0% / 0.7)",
+              border: "1px solid hsl(0 0% 100% / 0.15)",
+              backdropFilter: "blur(8px)",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(210 100% 56% / 0.8)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(0 0% 100% / 0.15)")}
+          >
+            <Linkedin className="w-4 h-4 text-foreground/80" />
+          </a>
+          <a
+            href={disableExternalSocials ? "#" : member.instagram}
+            target={disableExternalSocials ? undefined : "_blank"}
+            rel={disableExternalSocials ? undefined : "noopener noreferrer"}
+            title="Instagram"
+            aria-disabled={disableExternalSocials}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (disableExternalSocials) e.preventDefault();
+            }}
+            className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+            style={{
+              background: "hsl(0 0% 0% / 0.7)",
+              border: "1px solid hsl(0 0% 100% / 0.15)",
+              backdropFilter: "blur(8px)",
+            }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(330 100% 60% / 0.8)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "hsl(0 0% 100% / 0.15)")}
+          >
+            <Instagram className="w-4 h-4 text-foreground/80" />
+          </a>
         </motion.div>
       </div>
 
