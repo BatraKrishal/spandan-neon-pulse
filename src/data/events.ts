@@ -22,7 +22,7 @@ type RawEventData = Omit<EventData, "image">;
 const rawEvents: RawEventData[] = [
   {
     title: "GreenHack: Code for Impact",
-    category: "Hackathon",
+    category: "Coding",
     description: "A 24-hour hackathon focused on sustainability. Build innovative software solutions to tackle global environmental challenges and reduce carbon footprints.",
     date: "May 1–2 (Day 1–2)",
     teamSize: "4–6 members",
@@ -36,7 +36,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "AlgoRhythm",
-    category: "DSA Problem Solving",
+    category: "Coding",
     description: "Test your analytical thinking and coding speed! Compete against top programmers to solve complex Data Structures and Algorithms problems under strict time constraints.",
     date: "May 2 (Day 2)",
     teamSize: "Solo (1 member)",
@@ -50,7 +50,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "AI Foresight",
-    category: "ML Bot + Prediction Model",
+    category: "Coding",
     description: "Dive into the world of Machine Learning! Build, train, and optimize ML bots and predictive models to analyze complex datasets and solve real-world industry challenges.",
     date: "May 1 (Day 1)",
     teamSize: "1–4 members",
@@ -63,7 +63,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "BridgeIt",
-    category: "Bridge Making",
+    category: "Innovation",
     description: "Put your civil engineering skills to the test. Design and construct structurally sound, weight-bearing bridges using limited materials and race against time.",
     date: "May 1 (Day 1)",
     teamSize: "4–6 members (branch-wise)",
@@ -77,7 +77,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "TechScape Hunt",
-    category: "Treasure Hunt",
+    category: "Fun Tech",
     description: "An exhilarating campus-wide treasure hunt with a tech twist! Decipher intricate technical puzzles, crack codes, and unlock hidden clues to claim the ultimate prize.",
     date: "May 1 (Day 1)",
     teamSize: "2–5 members (same branch)",
@@ -90,7 +90,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "GeoCraft Arena",
-    category: "Terrain Manipulator Challenge",
+    category: "Robotics",
     description: "Design mechanisms and robots capable of navigating and manipulating challenging simulated terrains. Speed, adaptability, and precision are the keys to victory!",
     date: "May 2 (Day 2)",
     teamSize: "1–6 members",
@@ -117,7 +117,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "EcoInnovate",
-    category: "Innovation For Sustainable Future",
+    category: "Innovation",
     description: "A pitching and innovation challenge. Present your hardware or software prototypes aimed at promoting green energy, sustainability, and ecological preservation.",
     date: "May 2–3 (Day 2–3)",
     teamSize: "4–8 members",
@@ -133,7 +133,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "DesignForge",
-    category: "Design Event",
+    category: "Design",
     description: "Unleash your creativity! A UI/UX and product design competition where you wireframe, prototype, and build stunning user experiences to delight users.",
     date: "May 1–2 (Day 1–2)",
     teamSize: "Solo (1 member)",
@@ -148,7 +148,7 @@ const rawEvents: RawEventData[] = [
   },
   {
     title: "Circuit Chase",
-    category: "Line Following Robot",
+    category: "Robotics",
     description: "Construct autonomous robots built for speed and precision. Compete to navigate complex line-tracks with sharp turns and intersections in the fastest time possible.",
     date: "May 1 (Day 1)",
     teamSize: "3–6 members (branch-wise)",

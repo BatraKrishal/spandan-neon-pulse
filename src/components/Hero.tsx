@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -7,6 +8,30 @@ import { useAuthStore } from "@/store/authStore";
 
 const Hero = () => {
   const { isAuthenticated } = useAuthStore();
+  const modelRef = useRef<any>(null);
+  const timeoutRef = useRef<any>(null);
+
+  const handlePointerDown = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+  };
+
+  const handlePointerUp = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      if (modelRef.current) {
+        // Directly set the JS property for immediate physics change (1000ms half-life is smooth)
+        modelRef.current.interpolationDecay = 1000;
+        modelRef.current.cameraOrbit = "0deg 90deg auto";
+        
+        // Restore default snappy drag physics (50ms) after the glide completes
+        setTimeout(() => {
+          if (modelRef.current) {
+            modelRef.current.interpolationDecay = 50;
+          }
+        }, 2000);
+      }
+    }, 1000); // Wait 1 second after user lets go before gliding back
+  };
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useTransform(mouseY, [-300, 300], [6, -6]);
@@ -51,8 +76,13 @@ const Hero = () => {
         className="absolute -right-16 top-[19%] -translate-y-1/2 w-[55%] h-[500px] xl:h-[700px] hidden lg:block"
       >
         <model-viewer
+          ref={modelRef}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+          onPointerOut={handlePointerUp}
           src="/spanlogo.glb"
           auto-rotate
+          auto-rotate-delay="2000"
           camera-controls
           disable-zoom
           disable-pan
