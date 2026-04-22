@@ -56,9 +56,11 @@ const rawEvents: RawEventData[] = [
     teamSize: "1–4 members",
     minTeam: 1,
     maxTeam: 4,
-    rulebookUrl: "https://drive.google.com/open?id=1ZF4XY_Vpgjbzi0VJXedNhoKgoWX2x0IO",
+    rulebookUrl: "https://drive.google.com/open?id=1bCThS-EociGdluYbuYTmRCmeDNWPdFEB",
     coordinators: [
       { name: "Jiyanshi Batra", phone: "+91 8445021974", email: "jiyanshibatra753@gmail.com" },
+      { name: "Vaibhav Pokhriyal", phone: "+91 8266894170", email: "vpokhriyal35@gmail.com" },
+      { name: "Rahul Joshi", phone: "+91 7983524131", email: "rahuljoshi190114@gmail.com" },
     ],
   },
   {
@@ -212,7 +214,7 @@ const rawEvents: RawEventData[] = [
     teamSize: "3–4 members",
     minTeam: 3,
     maxTeam: 4,
-    rulebookUrl: "https://drive.google.com/open?id=1i2xuFrFQeSii9RNCV_-AgbB8XYrOTTj1",
+    rulebookUrl: "https://drive.google.com/open?id=1K9YNz-BuQbZLy6tik9yPjpQSEfzlOUmm",
     coordinators: [
       { name: "Ojasvi Thapa", phone: "+91 9149356184", email: "ojthapa10@gmail.com" },
     ],
