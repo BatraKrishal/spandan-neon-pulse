@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authAPI } from "@/lib/api";
+import { useAuthStore } from "@/store/authStore";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, ArrowRight, CheckCircle2 } from "lucide-react";
-import { useAuthStore } from "@/store/authStore";
 
 const perks = [
   "Register for 50+ technical events",
@@ -23,7 +23,7 @@ export default function Signup() {
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, setUser, setToken } = useAuthStore();
 
   // Redirect already-logged-in users
   useEffect(() => {
@@ -35,8 +35,12 @@ export default function Signup() {
     setLoading(true);
     try {
       await authAPI.register({ name, email, password });
-      toast.success("Account created successfully! Please login.");
-      navigate("/login");
+      // Auto-login after registration so the user is immediately authenticated
+      const loginRes = await authAPI.login({ email, password });
+      setUser(loginRes.data.user);
+      setToken(loginRes.data.accessToken);
+      toast.success("Welcome to Spandan! Your account is ready.");
+      navigate("/");
     } catch (error: unknown) {
       const err = error as { response?: { data?: { message?: string } } };
       toast.error(err.response?.data?.message || "Failed to create account");
