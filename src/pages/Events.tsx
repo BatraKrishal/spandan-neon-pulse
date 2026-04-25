@@ -72,7 +72,7 @@ const Events = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <div className="section-tag mb-5 mx-auto">May 1–3, 2026</div>
+            <div className="section-tag mb-5 mx-auto">May 8–10, 2026</div>
             <h1 className="text-4xl md:text-6xl font-heading font-black mb-5">
               All{" "}
               <span

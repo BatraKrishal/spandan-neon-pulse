@@ -247,7 +247,7 @@ const EventRegistration = () => {
       setSubmitted(true);
       toast({
         title: "Registration Successful! 🎉",
-        description: `You've registered for ${formData.event}. See you on May 1–3!`,
+        description: `You've registered for ${formData.event}. See you on May 8–10!`,
       });
     } catch (error: unknown) {
       const err = error as { response?: { data?: { message?: string } } };
@@ -309,7 +309,7 @@ const EventRegistration = () => {
               style={{ background: "hsl(78 100% 50% / 0.06)", border: "1px solid hsl(78 100% 50% / 0.15)" }}
             >
               📅 Mark your calendar —{" "}
-              <span className="text-foreground font-semibold">May 1–3, 2026</span>
+              <span className="text-foreground font-semibold">May 8–10, 2026</span>
             </div>
             <div className="flex gap-3">
               <Button
@@ -366,7 +366,7 @@ const EventRegistration = () => {
 
           {/* Header */}
           <div className="mb-8">
-            <div className="section-tag mb-4">May 1–3, 2026</div>
+            <div className="section-tag mb-4">May 8–10, 2026</div>
             <h1 className="text-3xl md:text-4xl font-heading font-black mb-2">
               Event <span className="neon-text">Registration</span>
             </h1>
@@ -545,7 +545,7 @@ const EventRegistration = () => {
                     <Calendar className="w-4 h-4 text-primary shrink-0" />
                     <span className="text-muted-foreground">
                       Event dates:{" "}
-                      <span className="text-foreground font-semibold">May 1–3, 2026</span>
+                      <span className="text-foreground font-semibold">May 8–10, 2026</span>
                     </span>
                   </div>
                   {/* Team size badge */}
