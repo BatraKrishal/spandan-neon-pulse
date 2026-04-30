@@ -32,9 +32,9 @@ const timelineData = {
 type DayKey = "day1" | "day2" | "day3";
 
 const days: { key: DayKey; label: string; date: string }[] = [
-  { key: "day1", label: "Day 01", date: "May 1" },
-  { key: "day2", label: "Day 02", date: "May 2" },
-  { key: "day3", label: "Day 03", date: "May 3" },
+  { key: "day1", label: "Day 01", date: "May 8" },
+  { key: "day2", label: "Day 02", date: "May 9" },
+  { key: "day3", label: "Day 03", date: "May 10" },
 ];
 
 const LIME = "hsl(78 100% 50%)";
@@ -68,7 +68,7 @@ const Timeline = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-14"
         >
-          <div className="section-tag mb-5 mx-auto">May 1–3, 2026</div>
+          <div className="section-tag mb-5 mx-auto">May 8–10, 2026</div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-5">
             Event <span className="neon-text">Timeline</span>
           </h2>

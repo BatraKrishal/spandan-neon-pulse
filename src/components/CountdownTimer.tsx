@@ -9,8 +9,8 @@ interface TimeLeft {
 }
 
 const CountdownTimer = () => {
-  // Event: May 1, 2026
-  const eventDate = new Date("2026-05-01T09:00:00").getTime();
+  // Event: May 8, 2026
+  const eventDate = new Date("2026-05-08T09:00:00").getTime();
 
   const calculateTimeLeft = (): TimeLeft => {
     const now = Date.now();

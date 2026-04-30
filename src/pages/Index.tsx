@@ -45,7 +45,7 @@ const Index = () => {
           }}
         />
         <div className="container mx-auto px-4 relative z-10 text-center max-w-xl mx-auto">
-          <div className="section-tag mb-5 mx-auto">May 1–3, 2026</div>
+          <div className="section-tag mb-5 mx-auto">May 8–10, 2026</div>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-5">
             Event <span className="neon-text">Timeline</span>
           </h2>
