@@ -19,7 +19,7 @@ export const sponsors: Sponsor[] = [
     logo: "QS",
     logoImage: "/sponsors/quadra-security-sponser.jpeg",
     website: "https://www.quadrasecurity.com/",
-    tagline: "Providing comprehensive cybersecurity, physical security, and risk management solutions for individuals and organizations.",
+    tagline: "Quadra Security provides professional installation of CCTV, biometric machines, ANPRs,and a wide range of security solutions.",
   },
   {
     name: "Dev Bhoomi Blood Bank",
