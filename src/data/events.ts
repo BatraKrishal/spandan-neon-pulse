@@ -87,7 +87,7 @@ const rawEvents: RawEventData[] = [
     maxTeam: 5,
     rulebookUrl: "https://drive.google.com/open?id=1jCuWdYbXikYR0UwTaCb3VzUhZn-6b05Y",
     coordinators: [
-      { name: "Gaurav Pal", phone: "+91 8439051108", email: "spandangbpiet@gmail.com" },
+      { name: "Ashlesh Ranjan", phone: "+91 9411135530" },
     ],
   },
   {
@@ -188,9 +188,7 @@ const rawEvents: RawEventData[] = [
     maxTeam: 1,
     rulebookUrl: "https://drive.google.com/open?id=1lVsKeq5FNfU2NBYBgjrzxrDhWRegZrXC",
     coordinators: [
-      { name: "Ojasvi Arora", phone: "+91 8791042614", email: "ojasviarora9926@gmail.com" },
-      { name: "Priyanshu Nautiyal", phone: "+91 9520213423", email: "priyanshu.nauti.0017@gmail.com" },
-      { name: "Rahul Joshi", phone: "+91 7983524131", email: "rahuljoshi190114@gmail.com" },
+      { name: "Nitesh Singh Bisht", phone: "+91 7300595088", email: "dhamijaansh27@gmail.com" },
     ],
   },
   {
@@ -203,7 +201,7 @@ const rawEvents: RawEventData[] = [
     maxTeam: 3,
     rulebookUrl: "https://drive.google.com/open?id=1mbdcWX77DhEkw4w008_aEB8jt6gvKkpb",
     coordinators: [
-      { name: "Ansh Dhamija", phone: "+91 7300595088", email: "dhamijaansh27@gmail.com" },
+      { name: "Paras Dhiman", phone: "+91 9548088962", email: "prsdhiman015@gmail.com" },
     ],
   },
   {
@@ -216,7 +214,9 @@ const rawEvents: RawEventData[] = [
     maxTeam: 4,
     rulebookUrl: "https://drive.google.com/open?id=1H7KhluImijuQ0lCWj8T2Xkw33sc_dJuD",
     coordinators: [
-      { name: "Ojasvi Thapa", phone: "+91 9149356184", email: "ojthapa10@gmail.com" },
+      { name: "Aakriti", phone: "+91 8532001073" },
+      { name: "Jiyanshi", phone: "+91 8445021974" },
+      { name: "Paras Dhiman", phone: "+91 9548088962" },
     ],
   },
 ];
