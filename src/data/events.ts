@@ -85,9 +85,9 @@ const rawEvents: RawEventData[] = [
     teamSize: "2–5 members (same branch)",
     minTeam: 2,
     maxTeam: 5,
-    rulebookUrl: "https://drive.google.com/open?id=1jCuWdYbXikYR0UwTaCb3VzUhZn-6b05Y",
+    rulebookUrl: "https://drive.google.com/open?id=1wYzzgR-wjM7yrEf-pKNGZOex8DpNMigX",
     coordinators: [
-      { name: "Gaurav Pal", phone: "+91 8439051108", email: "spandangbpiet@gmail.com" },
+      { name: "Ashlesh Ranjan", phone: "+91 9411135530" },
     ],
   },
   {
@@ -186,11 +186,9 @@ const rawEvents: RawEventData[] = [
     teamSize: "Solo (1 member)",
     minTeam: 1,
     maxTeam: 1,
-    rulebookUrl: "https://drive.google.com/open?id=1lVsKeq5FNfU2NBYBgjrzxrDhWRegZrXC",
+    rulebookUrl: "https://drive.google.com/open?id=1QM0UpRE3BrTw4GHPIWwOeg49xqQhgkBd",
     coordinators: [
-      { name: "Ojasvi Arora", phone: "+91 8791042614", email: "ojasviarora9926@gmail.com" },
-      { name: "Priyanshu Nautiyal", phone: "+91 9520213423", email: "priyanshu.nauti.0017@gmail.com" },
-      { name: "Rahul Joshi", phone: "+91 7983524131", email: "rahuljoshi190114@gmail.com" },
+      { name: "Nitesh Singh Bisht", phone: "+91 7300595088", email: "dhamijaansh27@gmail.com" },
     ],
   },
   {
@@ -201,9 +199,9 @@ const rawEvents: RawEventData[] = [
     teamSize: "2–3 members",
     minTeam: 2,
     maxTeam: 3,
-    rulebookUrl: "https://drive.google.com/open?id=1mbdcWX77DhEkw4w008_aEB8jt6gvKkpb",
+    rulebookUrl: "https://drive.google.com/open?id=1QFoUA2-acDS4XCqKzrwH8OjQjgrwzh91",
     coordinators: [
-      { name: "Ansh Dhamija", phone: "+91 7300595088", email: "dhamijaansh27@gmail.com" },
+      { name: "Paras Dhiman", phone: "+91 9548088962", email: "prsdhiman015@gmail.com" },
     ],
   },
   {
@@ -214,9 +212,11 @@ const rawEvents: RawEventData[] = [
     teamSize: "3–4 members",
     minTeam: 3,
     maxTeam: 4,
-    rulebookUrl: "https://drive.google.com/open?id=1H7KhluImijuQ0lCWj8T2Xkw33sc_dJuD",
+    rulebookUrl: "https://drive.google.com/open?id=1-fG6Xl7IPs6YZqKNxf6LZm3d4AdAwdpf",
     coordinators: [
-      { name: "Ojasvi Thapa", phone: "+91 9149356184", email: "ojthapa10@gmail.com" },
+      { name: "Aakriti", phone: "+91 8532001073" },
+      { name: "Jiyanshi", phone: "+91 8445021974" },
+      { name: "Paras Dhiman", phone: "+91 9548088962" },
     ],
   },
 ];
