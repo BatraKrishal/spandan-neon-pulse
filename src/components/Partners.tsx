@@ -10,10 +10,18 @@ interface Partner {
 
 const partners: Partner[] = [
   {
-    name: "PETA India",
-    logoImage: "/sponsors/PetaIndia.png",
-    color: "hsl(78 100% 50%)",
-    website: "https://www.petaindia.com/",
+    name: "Quadra Security",
+    logo: "QS",
+    logoImage: "/sponsors/quadra-security-sponser.jpeg",
+    color: "hsl(210 100% 50%)",
+    website: "https://www.quadrasecurity.com/",
+  },
+  {
+    name: "Dev Bhoomi Blood Bank",
+    logo: "DB",
+    logoImage: "/sponsors/dev-bhoomi-blood-bank-sponser.jpeg",
+    color: "hsl(350 100% 50%)",
+    website: "https://www.devbhoomibloodbank.com/",
   },
 ];
 
