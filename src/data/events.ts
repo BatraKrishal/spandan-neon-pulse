@@ -23,7 +23,7 @@ const rawEvents: RawEventData[] = [
   {
     title: "GreenHack: Code for Impact",
     category: "Coding",
-    description: "A 24-hour hackathon focused on sustainability. Build innovative software solutions to tackle global environmental challenges and reduce carbon footprints.",
+    description: "A 36-hour hackathon focused on sustainability. Build innovative software solutions to tackle global environmental challenges and reduce carbon footprints.",
     date: "May 8–9 (Day 1–2)",
     teamSize: "4–6 members",
     minTeam: 4,
@@ -31,7 +31,6 @@ const rawEvents: RawEventData[] = [
     rulebookUrl: "https://drive.google.com/open?id=1qwmJbHsx1voS4wc9Mkk0inL9eaK5NAYx",
     coordinators: [
       { name: "Kritesh Purohit", phone: "+91 7505753608", email: "kriteshpurohit151021@gmail.com" },
-      { name: "Ayush Joshi", phone: "+91 9068883799" },
     ],
   },
   {
