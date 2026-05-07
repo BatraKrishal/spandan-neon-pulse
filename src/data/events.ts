@@ -185,7 +185,7 @@ const rawEvents: RawEventData[] = [
     teamSize: "Solo (1 member)",
     minTeam: 1,
     maxTeam: 1,
-    rulebookUrl: "https://drive.google.com/open?id=1QM0UpRE3BrTw4GHPIWwOeg49xqQhgkBd",
+    rulebookUrl: "https://drive.google.com/file/d/1tNJalX70Luh2GODn0vD0XrP_60OkR0Xl/view?usp=drive_link",
     coordinators: [
       { name: "Nitesh Singh Bisht", phone: "+91 7300595088", email: "dhamijaansh27@gmail.com" },
     ],
