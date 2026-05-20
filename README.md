@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# Spandan 2026 - Tech Fest Platform
 
-## Project info
+Spandan is a production-deployed college tech fest platform for GBPIET's Spandan 2026. The frontend presents the event experience, team/sponsor information, authentication flows, and protected event registration screens.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Live site: [spandan.gbpiet.in](https://spandan.gbpiet.in)  
+Vercel deployment: [spandan-neon-pulse.vercel.app](https://spandan-neon-pulse.vercel.app)  
+Backend repo: [BatraKrishal/spandanBackend](https://github.com/BatraKrishal/spandanBackend)
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Landing page for the Spandan event brand, timeline, partners, and event highlights.
+- Searchable/filterable events page with modal details, rulebook links, categories, coordinators, team sizes, and dates.
+- Auth flows for login, signup, refresh-token session restore, and Google OAuth callback handling.
+- Protected event registration route for authenticated participants.
+- Team-member registration support with college, branch, year, and team-leader details.
+- API client with Axios, credentialed requests, JWT bearer headers, and backend routing through `/api`.
+- Shared state management with Zustand and async data handling with React Query.
+- Responsive UI built with Tailwind CSS, shadcn/ui, Radix UI primitives, Framer Motion, and Lucide icons.
 
-**Use Lovable**
+## Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+**Frontend:** React, Vite, TypeScript, Tailwind CSS, shadcn/ui, Radix UI, React Router, React Query, Zustand, Framer Motion  
+**Backend Integration:** Axios, JWT auth, refresh-token cookies, Google OAuth flow  
+**Deployment:** Vercel frontend with API routing to the backend service
 
-Changes made via Lovable will be committed automatically to this repo.
+## Architecture
 
-**Use your preferred IDE**
+```text
+Browser
+  |
+  v
+Vite React App
+  |
+  | /api requests
+  v
+Express + MongoDB Backend
+  |
+  | participant registration export
+  v
+Google Sheets
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Main Routes
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- `/` - home, hero, timeline, about, partners
+- `/events` - event listing with search and category filters
+- `/register` - protected event registration
+- `/login` and `/signup` - authentication
+- `/team` - organizing team
+- `/sponsors` - sponsor information
 
-Follow these steps:
+## Local Development
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Create a local `.env` file when connecting to a backend:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```env
+VITE_API_URL=http://localhost:5000
+```
 
-**Use GitHub Codespaces**
+## Scripts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run test
+```
 
-## What technologies are used for this project?
+## Project Notes
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This was built as a collaborative production project, with frontend work, backend integration, authentication handling, event data modeling, deployment iteration, and contributor coordination happening through GitHub and Vercel.
